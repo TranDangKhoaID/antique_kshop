@@ -1,4 +1,7 @@
 import 'package:antique_shop/constants.dart';
+import 'package:antique_shop/screens/cart/cart_screen.dart';
+import 'package:antique_shop/screens/favorite.dart';
+import 'package:antique_shop/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -10,6 +13,13 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int cuttentIndex = 2;
+  List screens = const [
+    Scaffold(),
+    Favorite(),
+    HomeScreen(),
+    CartScreen(),
+    Scaffold(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,6 +103,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ],
         ),
       ),
+      body: screens[cuttentIndex],
     );
   }
 }
