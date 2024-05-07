@@ -1,5 +1,6 @@
 import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/models/product.dart';
+import 'package:antique_shop/screens/detail/detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -10,7 +11,16 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailScreen(
+              product: product,
+            ),
+          ),
+        );
+      },
       child: Stack(
         children: [
           Container(

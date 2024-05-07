@@ -1,6 +1,6 @@
 import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/models/product.dart';
-import 'package:antique_shop/screens/home/widgets/category.dart';
+import 'package:antique_shop/screens/home/widgets/categories.dart';
 import 'package:antique_shop/screens/home/widgets/home_app_bar.dart';
 import 'package:antique_shop/screens/home/widgets/image_slider.dart';
 import 'package:antique_shop/screens/home/widgets/product_card.dart';

@@ -23,7 +23,7 @@ class CustomAppBar extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        Text(
+        const Text(
           'Welcome',
           style: TextStyle(
             fontSize: 20,
