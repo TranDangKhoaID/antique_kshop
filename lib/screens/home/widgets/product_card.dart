@@ -32,18 +32,21 @@ class ProductCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Gap(15),
+                const Gap(5),
                 Center(
-                  child: Image.asset(
-                    product.image,
-                    width: 100,
-                    height: 100,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: product.image,
+                    child: Image.asset(
+                      product.image,
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-                Gap(10),
+                const Gap(10),
                 Padding(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   child: Text(
                     product.title,
                     style: const TextStyle(
@@ -52,7 +55,7 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Gap(10),
+                const Gap(10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -78,10 +81,35 @@ class ProductCard extends StatelessWidget {
                       ),
                     )
                   ],
-                )
+                ),
               ],
             ),
-          )
+          ),
+          Positioned(
+              child: Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: const BoxDecoration(
+                color: kprimaryColor,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  bottomLeft: Radius.circular(10),
+                ),
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  print('Them yeu thich');
+                },
+                child: const Icon(
+                  Icons.favorite_border,
+                  color: Colors.white,
+                  size: 22,
+                ),
+              ),
+            ),
+          ))
         ],
       ),
     );

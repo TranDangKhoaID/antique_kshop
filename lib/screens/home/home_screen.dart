@@ -1,4 +1,3 @@
-import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/models/product.dart';
 import 'package:antique_shop/screens/home/widgets/categories.dart';
 import 'package:antique_shop/screens/home/widgets/home_app_bar.dart';
@@ -66,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ],
               ),
-              Gap(5),
+              const Gap(5),
               //for shopping
               GridView.builder(
                 padding: EdgeInsets.zero,

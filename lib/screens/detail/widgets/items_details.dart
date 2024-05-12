@@ -14,7 +14,7 @@ class ItemsDetails extends StatelessWidget {
       children: [
         Text(
           product.title,
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.w800,
             fontSize: 25,
           ),
@@ -26,7 +26,7 @@ class ItemsDetails extends StatelessWidget {
               children: [
                 Text(
                   "\$${product.price}",
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 25,
                   ),
@@ -43,18 +43,18 @@ class ItemsDetails extends StatelessWidget {
                         color: kprimaryColor,
                       ),
                       alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(horizontal: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.star,
                             size: 15,
                             color: Colors.white,
                           ),
-                          Gap(3),
+                          const Gap(3),
                           Text(
                             product.rate.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
                               fontSize: 14,
@@ -66,7 +66,7 @@ class ItemsDetails extends StatelessWidget {
                     const Gap(5),
                     Text(
                       product.review,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.grey,
                         fontSize: 15,
                       ),
@@ -78,7 +78,7 @@ class ItemsDetails extends StatelessWidget {
             const Spacer(),
             Text.rich(
               TextSpan(children: [
-                TextSpan(
+                const TextSpan(
                   text: "Seller: ",
                   style: TextStyle(
                     fontSize: 16,
@@ -86,7 +86,8 @@ class ItemsDetails extends StatelessWidget {
                 ),
                 TextSpan(
                   text: product.seller,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ]),
             ),

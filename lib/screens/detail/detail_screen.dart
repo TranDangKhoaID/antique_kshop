@@ -1,5 +1,7 @@
 import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/models/product.dart';
+import 'package:antique_shop/screens/detail/widgets/add_to_cart.dart';
+import 'package:antique_shop/screens/detail/widgets/description.dart';
 import 'package:antique_shop/screens/detail/widgets/detail_app_bar.dart';
 import 'package:antique_shop/screens/detail/widgets/image_silder.dart';
 import 'package:antique_shop/screens/detail/widgets/items_details.dart';
@@ -21,12 +23,15 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kcontentColor,
+      //for add to cart, icon and quantity
+      floatingActionButton: AddToCart(product: widget.product),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               //for back button share and favorite
-              DetailAppBar(),
+              const DetailAppBar(),
               //for detail image slider
               MyImageSlider(
                 onChange: (p0) {
@@ -67,7 +72,7 @@ class _DetailScreenState extends State<DetailScreen> {
                       topRight: Radius.circular(40),
                       topLeft: Radius.circular(40),
                     )),
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 20,
                   right: 20,
                   top: 20,
@@ -79,7 +84,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     //for product name, price, rating, and seller
                     ItemsDetails(product: widget.product),
                     const Gap(20),
-                    Text(
+                    const Text(
                       "Color",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -130,6 +135,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     const Gap(20),
                     //for description
+                    Description(description: widget.product.description),
                   ],
                 ),
               )
