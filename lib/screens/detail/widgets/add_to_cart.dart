@@ -1,5 +1,6 @@
 import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/models/product.dart';
+import 'package:antique_shop/providers/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -16,6 +17,7 @@ class _AddToCartState extends State<AddToCart> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = CartProvider.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
@@ -44,7 +46,13 @@ class _AddToCartState extends State<AddToCart> {
               child: Row(
                 children: [
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (currentIndex != 1) {
+                        setState(() {
+                          currentIndex--;
+                        });
+                      }
+                    },
                     icon: const Icon(
                       Icons.remove,
                     ),
@@ -60,7 +68,11 @@ class _AddToCartState extends State<AddToCart> {
                   ),
                   const Gap(5),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        currentIndex++;
+                      });
+                    },
                     icon: const Icon(
                       Icons.add,
                     ),
@@ -70,7 +82,21 @@ class _AddToCartState extends State<AddToCart> {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                provider.toggleFavorite(widget.product);
+                const snackBar = SnackBar(
+                  content: Text(
+                    "Successfully added!",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
+                  ),
+                  duration: Duration(seconds: 1),
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
               child: Container(
                 //height: 45,
                 margin: const EdgeInsets.symmetric(vertical: 10),

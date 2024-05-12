@@ -56,7 +56,7 @@ class Description extends StatelessWidget {
             fontSize: 16,
             color: Colors.grey,
           ),
-        )
+        ),
       ],
     );
   }
