@@ -1,6 +1,6 @@
 import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/screens/cart/cart_screen.dart';
-import 'package:antique_shop/screens/favorite.dart';
+import 'package:antique_shop/screens/favorite/favorite.dart';
 import 'package:antique_shop/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 

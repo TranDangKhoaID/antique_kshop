@@ -1,4 +1,5 @@
 import 'package:antique_shop/providers/cart_provider.dart';
+import 'package:antique_shop/providers/favorite_provider.dart';
 import 'package:antique_shop/screens/nav_bar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) => MultiProvider(
         providers: [
           ChangeNotifierProvider(create: (_) => CartProvider()),
+          ChangeNotifierProvider(create: (_) => FavoriteProvider()),
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,

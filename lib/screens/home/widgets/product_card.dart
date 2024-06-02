@@ -1,7 +1,9 @@
 import 'package:antique_shop/constants.dart';
 import 'package:antique_shop/models/product.dart';
+import 'package:antique_shop/providers/favorite_provider.dart';
 import 'package:antique_shop/screens/detail/detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:gap/gap.dart';
 
 class ProductCard extends StatelessWidget {
@@ -10,6 +12,7 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = FavoriteProvider.of(context);
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -85,31 +88,35 @@ class ProductCard extends StatelessWidget {
               ],
             ),
           ),
+          //for favorite
           Positioned(
-              child: Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              height: 40,
-              width: 40,
-              decoration: const BoxDecoration(
-                color: kprimaryColor,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(10),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: const BoxDecoration(
+                  color: kprimaryColor,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(10),
+                  ),
                 ),
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  print('Them yeu thich');
-                },
-                child: const Icon(
-                  Icons.favorite_border,
-                  color: Colors.white,
-                  size: 22,
+                child: GestureDetector(
+                  onTap: () {
+                    provider.toggleFavorite(product);
+                  },
+                  child: Icon(
+                    provider.isExit(product)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    color: Colors.white,
+                    size: 22,
+                  ),
                 ),
               ),
             ),
-          ))
+          )
         ],
       ),
     );

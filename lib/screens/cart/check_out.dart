@@ -12,7 +12,7 @@ class CheckOutBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final provider = CartProvider.of(context);
     return Container(
-      height: 260,
+      //height: 250,
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Colors.white,
@@ -21,7 +21,7 @@ class CheckOutBox extends StatelessWidget {
           topLeft: Radius.circular(30),
         ),
       ),
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.symmetric(vertical: 35, horizontal: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -75,9 +75,9 @@ class CheckOutBox extends StatelessWidget {
               )
             ],
           ),
-          const SizedBox(height: 10),
+          //const SizedBox(height: 10),
           const Divider(),
-          const SizedBox(height: 10),
+          //const SizedBox(height: 10),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
